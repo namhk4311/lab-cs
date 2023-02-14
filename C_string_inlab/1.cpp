@@ -1,5 +1,9 @@
 #include <iostream>
 #include <cstring>
+//Implement void process(const char str[], char outstr[]) function which standardizes English name. The standardized name has the following features:
+//1. The first character of each word must be uppercase. The remaining characters of each word must be lowercase.
+//2. Only contains characters in English alphabet.
+//3. There are no consecutive space characters and there is no space character at the beginning/end of the name
 using namespace std;
 bool flag = false;
 void process1(const char *name, char *outstr) {
