@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
+//Implement the function void replaceString(string s, string s1, string s2) to print the string s after replacing the last substring s1 with the s2 contained in s.
+//If the string s1 is not found, keep the string s and print it.
+//Hint: Refer to the string::replace function in the <string> library.
 void replaceString(string s, string s1, string s2){
     int max = -1;
     for (int i = 0; i < s.length(); i++)
