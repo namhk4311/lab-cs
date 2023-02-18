@@ -37,6 +37,7 @@ void process(string fileName)   {
             if (max2 < arr2[i]) max2 = arr2[i];
         }
         cout << max2 << endl;
+    ip.close();
 }
 
 int main()
