@@ -2,8 +2,8 @@
 using namespace std;
 
 // A natural number n is special if and only if n is a prime number and the sum of all the digits of n is also a prime number. Write a function that determines if a natural number is a special or not.
-
-bool isSpecialNumber(int n) {
+// cách 1
+bool isSpecialNumber1(int n) {
     bool flag = true; int cnt = 1; int a[100], check = 0;
     for (int i = 2; i <= n/2 + 1; i++)
     {
@@ -42,11 +42,33 @@ bool isSpecialNumber(int n) {
     if (check != 2) return false;
     return true;
 }
+//cách 2
+bool isPrime(int n)
+{
+    if (n == 1) return false;
+    for (int i = 2; i <= n / 2; ++i)
+        if (n % i == 0) return false;
 
+    return true;
+}
+
+bool isSpecialNumber2(int n)
+{
+    int sum = 0;
+    int m = n;
+
+    while (m > 0)
+    {
+        sum += m % 10;
+        m /= 10;
+    }
+
+    return ((isPrime(sum) && isPrime(n)) ? true : false);
+}
 int main()
 {
     int n;
     cin >> n;
-    cout << isSpecialNumber(n);
+    cout << isSpecialNumber1(n);
     return 0;
 }
