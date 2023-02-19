@@ -7,7 +7,8 @@ void encrypt(char* text, int shift) {
     for (int i = 0; i < strlen(text); i++)
     {
         int ntext = (int)text[i] + shift;
-        if (ntext > (int)'Z' || ntext > (int)'z') ntext = ntext - 26;
+        if ('a' <= text[i] && text[i] <= 'z' && ntext > (int)'z') ntext = ntext - 26;
+        else if ('A' <= text[i] && text[i] <= 'Z' && ntext > (int)'Z') ntext = ntext - 26;
         text[i] = (char)ntext;
     }
 }
