@@ -1,7 +1,7 @@
 #include "knight.h"
 
 int event[200010]; int MaxHP = 999, MaxLevel = 10, MaxRemedy = 99, MaxMaidenkiss = 99, MaxPhoenixdown = 99; 
-
+string file_pack[3];
 void display(int HP, int level, int remedy, int maidenkiss, int phoenixdown, int rescue) 
 {
     cout << "HP=" << HP
@@ -11,7 +11,6 @@ void display(int HP, int level, int remedy, int maidenkiss, int phoenixdown, int
         << ", phoenixdown=" << phoenixdown
         << ", rescue=" << rescue << endl;
 }
-
 
 void knightcheck(string s, int &HP,int &level,int &remedy,int &maidenkiss, int &phoenixdown)
 {    
@@ -28,46 +27,110 @@ int event1_5damage(int event, int levelIO)
     {
         case 1:
         {
-            res = event1*levelIO; 
+            res = event1*levelIO;
+            break; 
         } 
         case 2:
         {
             res = event2*levelIO;
+            break;
         }
         case 3:
         {
             res = event3*levelIO;
+            break;
         }
         case 4:
         {
             res = event4*levelIO;
+            break;
         }
         case 5:
         {
             res = event5*levelIO;
+            break;
         }
     }
     return res;
 }
 
-void eventcheck(string s, int &HP, int &level, int &remedy, int &maidenkiss, int &phoenixdown, int &rescue)
+bool checkHPisprime(int HP)
 {
-    int eventindex = -1, k = 0, currentLevel = -1; bool flagencounter = false, currentHP = -1;
+    if (HP == 1) return false;
+    else if (HP == 2) return true;
+    else {
+        for (int i = 2; i <= HP/2 + 1; i++)
+        {
+            if (HP % i == 0) return false;
+        }
+    }
+    return true;
+}
+
+int fibonacci(int n)
+{
+    if (n < 2 && n > 0) return 1;
+    if (n == 0) return 0;
+    else return fibonacci(n - 1) + fibonacci(n - 2); 
+}
+
+int Fibocheck(int HP)
+{
+    int n = 0, res = 0;
+    while (fibonacci(n) < HP && HP > 1)
+    {
+        res = fibonacci(n++);
+    }
+    if (HP == 1) res = 1;
+    return res; 
+}
+
+void check_Mush_Ghost(int n)
+{
+    int k = log10(n) + 1;
+    int arr[100];
+    for (int i = k - 1; i >= 0; i--){
+        arr[i] = n % 10;
+        n = n/10;
+    }
+    int tmp = arr[0]*10 + arr[1];
+    if (tmp == 13)
+    {
+        //
+    }
+}
+
+void eventcheck(string s, int &HP, int &level, int &remedy, int &maidenkiss, int &phoenixdown, int &rescue, string file_pack[])
+{
+    int eventindex = -1, k = 0, currentLevel = -1, currentHP = -1; bool flagencounter = false, flagintial = false, flag999 = false;
     int flagevent6 = -1, flagevent7 = -1;
     stringstream ss(s);
     while(ss >> eventindex) event[k++] = eventindex;
     for (int i = 0; i < k; i++)
-    {
-        
-        if (HP == 999)
+    {       
+        if (HP == 999 && !flagintial)
         {
-            //
+            flagintial = true;
+            flag999 = true;
         }
         if (HP <= 0) {rescue = 0; break;}
+
+        if (i == flagevent6) 
+        {
+            HP *= 5; 
+            if (HP > MaxHP) HP = MaxHP;
+        }
+
+        if (i == flagevent7) //sau khi bien thanh ech qua 3 su kien thi quay ve binh thuong
+        {
+            level = currentLevel;
+        }
+
         if (event[i] == 0) {rescue = 1; break;} // save the princess
         // gap cac su kien co ma tu 1 đen 5
         if (1 <= event[i] && event[i] <= 5)  
         {
+            if (flag999) {level++; continue;}
             int b = (i + 1) % 10; 
             int levelIO = i + 1; // tính level của đối thủ
             (levelIO > 6) ? ((b > 5) ? b : 5) : b; 
@@ -88,7 +151,8 @@ void eventcheck(string s, int &HP, int &level, int &remedy, int &maidenkiss, int
         } 
         //gap ma su kien = 6
         if (event[i] == 6)  
-        {
+        { 
+            if (flag999) {level++; continue;}
             if (i < flagevent7) continue; //bi bien thanh ech ma gap Shaman thi bo qua
             int levelIO = i + 1;
             if (level > levelIO) 
@@ -117,14 +181,10 @@ void eventcheck(string s, int &HP, int &level, int &remedy, int &maidenkiss, int
                 }   
             }   
         }
-        if (i == flagevent6) 
-        {
-            HP *= 5; 
-            if (HP > MaxHP) HP = MaxHP;
-        }
         //gap ma su kien = 7 (Vajsh)
         if (event[i] == 7)
         {
+            if (flag999) {level++; continue;}
             if (i < flagevent6) continue; //bi bien thanh ti hon ma gap Vajsh thi bo qua
             int levelIO = i + 1;
             if (level > levelIO) 
@@ -145,12 +205,8 @@ void eventcheck(string s, int &HP, int &level, int &remedy, int &maidenkiss, int
                 }
             }
         }
-        if (i == flagevent7) //sau khi bien thanh ech qua 3 su kien thi quay ve binh thuong
-        {
-            level = currentLevel;
-        }
-        if (event[i] == 11) //Nhat dc nam MushMario
-        {
+        if (event[i] == 11) //Nhat dc nam MushMario 
+        {            
             int n1 = ((level + phoenixdown) % 5 + 1) * 3, intial = 99, s1 = 0;
             for (int i = 1; i <= n1; i++)
             {
@@ -159,21 +215,32 @@ void eventcheck(string s, int &HP, int &level, int &remedy, int &maidenkiss, int
             }
             HP = HP + (s1 % 100);
             int checkPrimeHP = HP; bool flag = false;
-            while (flag != true)
-            {
-                int cntcheck = 0;
-                flag = true;
-                for (int i = 2; i <= checkPrimeHP/2; i++) 
+            if (checkPrimeHP == 1) {checkPrimeHP = 2;}
+            else if (checkPrimeHP == 2) {checkPrimeHP = 3;}
+            else {
+                while (flag != true)
                 {
-                    if(checkPrimeHP % i == 0) flag = false;
-                    cntcheck++;
+                    int cntcheck = 0;
+                    flag = true;
+                    for (int i = 2; i <= checkPrimeHP/2 + 1; i++) 
+                    {
+                        if(checkPrimeHP % i == 0) flag = false;
+                        cntcheck++;
+                    }
+                    if (cntcheck == 0) flag = false;
+                    checkPrimeHP++;
                 }
-                if (cntcheck == 0) flag = false;
-                checkPrimeHP++;
             }
             HP = checkPrimeHP;
             if (HP > MaxHP) HP = MaxHP;
         }
+        if (event[i] == 12) 
+        {
+            Fibocheck(HP);
+        }
+        
+        check_Mush_Ghost(event[i]);
+        
         if (event[i] == 15 && remedy < MaxRemedy)
         {
             remedy++;
@@ -190,9 +257,8 @@ void eventcheck(string s, int &HP, int &level, int &remedy, int &maidenkiss, int
         {   
             flagencounter = true; bool lootRemedy = false, lootMaidenkiss = false;
             int r1, c1, pack1[100][100]; 
-            string file1 = "tc1_asclepius_pack";
             ifstream fileap;
-            fileap.open(file1);
+            fileap.open(file_pack[1]);
                 fileap >> r1;
                 fileap >> c1;
                 for (int r = 0; r < r1; r++)
@@ -202,7 +268,7 @@ void eventcheck(string s, int &HP, int &level, int &remedy, int &maidenkiss, int
                         fileap >> pack1[r][c];
                     }
                 }
-               
+            
                 for (int r = 0; r < r1; r++) //check loot
                 {
                     int loot = 0;
@@ -238,11 +304,31 @@ void eventcheck(string s, int &HP, int &level, int &remedy, int &maidenkiss, int
                     maidenkiss--; flagevent7 = -1; level = currentLevel;
                 }
         }
-
+    }
+    
+    if (k == flagevent6) 
+    {
+        HP *= 5; 
+        if (HP > MaxHP) HP = MaxHP;
+    }
+    
+    if (k == flagevent7) 
+    {
+        level = currentLevel;
     }
     if (rescue == -1) rescue = 1; //nếu chạy hết mã sự kiện mà rescue = -1 thì đổi lại thành rescue = 1 (thành công)
 }
-// thieu ham check file them
+
+void filecheck(string s)
+{
+    string tmp[10]; int cnt = 0;
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s[i] != ',') file_pack[cnt] += s[i];
+        else cnt++;
+    }
+}
+
 void inputData(string file_input, int &HP, int &level, int &remedy, int &maidenkiss, int &phoenixdown, int &rescue)
 {
     rescue = -1;
@@ -253,7 +339,8 @@ void inputData(string file_input, int &HP, int &level, int &remedy, int &maidenk
     getline(ipp,events);
     getline(ipp,nfile);
     knightcheck(info, HP, level, remedy, maidenkiss, phoenixdown);
-    eventcheck(events, HP, level, remedy, maidenkiss, phoenixdown, rescue);
+    filecheck(nfile);
+    eventcheck(events, HP, level, remedy, maidenkiss, phoenixdown, rescue, file_pack);
     ipp.close();
 }
 
