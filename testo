@@ -1,0 +1,124 @@
+  Test case 1116
+1.Input:
+501 7 0 0 0
+11 11 11 11 11 18 18 18 18 18 1 2 3 4 5 5 4 3 2 1 6 7 7 6
+tc1116_mush_ghost,tc1116_asclepius_pack,tc1116_merlin_pack
+2.MerlinPack:
+13
+google
+gmail
+bkelearning
+university
+UNICEF
+LapTOP
+camping123
+princess
+primenumber
+1001Merlin1001
+ensure
+getHP
+increaseHP
+3.result:
+HP=501, level=7, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=7, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=7, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=7, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=7, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=7, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=7, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=7, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=7, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=7, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=8, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=9, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=10, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=10, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=10, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=10, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=10, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=10, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=10, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=10, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=10, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=10, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=10, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=501, level=10, remedy=0, maidenkiss=0, phoenixdown=0, rescue=1
+  Testcase 1087
+1.input:
+100 5 10 10 10
+13333 1 2 3 4 5 15 16 17 17 16 15 6 7
+tc1087_mush_ghost,tc1087_asclepius_pack,tc1087_merlin_pack
+2.Mushroom
+23
+-11,23,15,27,11,-67,67,-23,-99,100,12,6,2,3,5,7,-2,-3,-5,-7,0,1,9
+3.result:
+HP=64, level=5, remedy=10, maidenkiss=10, phoenixdown=10, rescue=-1
+HP=64, level=6, remedy=10, maidenkiss=10, phoenixdown=10, rescue=-1
+HP=64, level=7, remedy=10, maidenkiss=10, phoenixdown=10, rescue=-1
+HP=64, level=8, remedy=10, maidenkiss=10, phoenixdown=10, rescue=-1
+HP=64, level=9, remedy=10, maidenkiss=10, phoenixdown=10, rescue=-1
+HP=64, level=10, remedy=10, maidenkiss=10, phoenixdown=10, rescue=-1
+HP=64, level=10, remedy=11, maidenkiss=10, phoenixdown=10, rescue=-1
+HP=64, level=10, remedy=11, maidenkiss=11, phoenixdown=10, rescue=-1
+HP=64, level=10, remedy=11, maidenkiss=11, phoenixdown=11, rescue=-1
+HP=64, level=10, remedy=11, maidenkiss=11, phoenixdown=12, rescue=-1
+HP=64, level=10, remedy=11, maidenkiss=12, phoenixdown=12, rescue=-1
+HP=64, level=10, remedy=12, maidenkiss=12, phoenixdown=12, rescue=-1
+HP=64, level=10, remedy=12, maidenkiss=12, phoenixdown=12, rescue=-1
+HP=64, level=10, remedy=12, maidenkiss=12, phoenixdown=12, rescue=1
+  testcase 1108:
+1.input:
+998 1 0 0 0
+4 7 16 12 11 11 12 1 2 3 4 5
+tc1108_mush_ghost,tc1108_asclepius_pack,tc1108_merlin_pack
+3.result:
+HP=998, level=1, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=998, level=1, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=998, level=1, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=987, level=1, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=998, level=1, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=998, level=1, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=987, level=1, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=907, level=1, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=772, level=1, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=547, level=1, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=172, level=1, remedy=0, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=-303, level=1, remedy=0, maidenkiss=0, phoenixdown=0, rescue=0
+  testcase 1121:
+1.input:
+140 7 1 1 1
+12 18 1 2 3 4 5 11 12
+tc1121_mush_ghost,tc1121_asclepius_pack,tc1121_merlin_pack
+2.merlin:
+5
+1000Merlin1000
+1000Merlin1000
+1000Merlin1000
+1000Merlin1000
+1000Merlin1000
+3.result:
+HP=89, level=7, remedy=1, maidenkiss=1, phoenixdown=1, rescue=-1
+HP=104, level=7, remedy=1, maidenkiss=1, phoenixdown=1, rescue=-1
+HP=104, level=8, remedy=1, maidenkiss=1, phoenixdown=1, rescue=-1
+HP=104, level=9, remedy=1, maidenkiss=1, phoenixdown=1, rescue=-1
+HP=104, level=10, remedy=1, maidenkiss=1, phoenixdown=1, rescue=-1
+HP=104, level=10, remedy=1, maidenkiss=1, phoenixdown=1, rescue=-1
+HP=104, level=10, remedy=1, maidenkiss=1, phoenixdown=1, rescue=-1
+HP=140, level=10, remedy=1, maidenkiss=1, phoenixdown=1, rescue=-1
+HP=89, level=10, remedy=1, maidenkiss=1, phoenixdown=1, rescue=1
+  testcase 1094:
+1.input:
+255 5 1 0 0
+134 2 134 15 16 7 6
+tc1094_mush_ghost,tc1094_asclepius_pack,tc1094_merlin_pack
+2.mushroom
+2
+-23,-23
+3.result:
+HP=255, level=5, remedy=1, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=255, level=6, remedy=1, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=255, level=6, remedy=1, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=255, level=6, remedy=2, maidenkiss=0, phoenixdown=0, rescue=-1
+HP=255, level=6, remedy=2, maidenkiss=1, phoenixdown=0, rescue=-1
+HP=255, level=6, remedy=2, maidenkiss=1, phoenixdown=0, rescue=-1
+HP=255, level=6, remedy=1, maidenkiss=1, phoenixdown=0, rescue=1
